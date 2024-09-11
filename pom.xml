@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.ray</groupId>
+    <artifactId>clould-mall</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>cloud-iaas</module>
+        <module>cloud-iaas/auth-server</module>
+        <module>cloud-iaas/gateway-server</module>
+        <module>cloud-common</module>
+        <module>cloud-business</module>
+        <module>cloud-business/manager-service</module>
+        <module>cloud-business/product-service</module>
+        <module>cloud-business/store-service</module>
+        <module>cloud-business/search-service</module>
+        <module>cloud-business/member-service</module>
+        <module>cloud-business/cart-service</module>
+        <module>cloud-business/order-service</module>
+    </modules>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.3</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <packaging>pom</packaging>
+    <!-- 依赖版本号管理 -->
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring-cloud.version>2021.0.1</spring-cloud.version>
+        <spring-cloud-alibaba.version>2021.0.1.0</spring-cloud-alibaba.version>
+        <mybatis-plus.version>3.5.2</mybatis-plus.version>
+        <druid.starter.version>1.1.21</druid.starter.version>
+        <hutool.version>5.3.9</hutool.version>
+        <fastjson.version>1.2.83</fastjson.version>
+        <swagger-ui.version>3.0.0</swagger-ui.version>
+        <mysql-connector-j.version>8.0.32</mysql-connector-j.version>
+        <web.version>2.6.3</web.version>
+        <common-base.version>1.0-SNAPSHOT</common-base.version>
+        <common-core.version>1.0-SNAPSHOT</common-core.version>
+        <aliyun-sdk-oss.version>3.15.0</aliyun-sdk-oss.version>
+    </properties>
+
+    <!--全局依赖管理-->
+    <dependencyManagement>
+        <dependencies>
+            <!--Spring Cloud依赖-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--Spring Cloud Alibaba依赖-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--MyBatis plus依赖-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!--MyBatis plus常用注解依赖-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-annotation</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!--MySQL驱动-->
+            <dependency>
+                <groupId>com.mysql</groupId>
+                <artifactId>mysql-connector-j</artifactId>
+                <version>${mysql-connector-j.version}</version>
+            </dependency>
+            <!--Druid数据源-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.starter.version}</version>
+            </dependency>
+            <!--第三方工具库hutool-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+            <!--fastjson依赖-->
+            <dependency>
+                <groupId>com.alibaba </groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <!--SwaggerUI-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>${swagger-ui.version}</version>
+            </dependency>
+            <!--SwaggerUI-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${web.version}</version>
+            </dependency>
+            <!--公共基础模块依赖-->
+            <dependency>
+                <groupId>com.ray</groupId>
+                <artifactId>common-base</artifactId>
+                <version>${common-base.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ray</groupId>
+                <artifactId>common-core</artifactId>
+                <version>${common-core.version}</version>
+            </dependency>
+            <!--阿里云OSS SDK依赖-->
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>${aliyun-sdk-oss.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

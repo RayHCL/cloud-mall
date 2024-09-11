@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: product-service   # 设置服务名称
+  cloud:
+    nacos:
+      discovery:  # nacos注册中心配置
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: rayhuc
+        namespace: db3b08b0-9325-4e2c-afe1-0f8c560aa251
+        group: A_GROUP
+        service: ${spring.application.name}
+      config:   # nacos配置中心配置
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        username: ${spring.cloud.nacos.discovery.username}
+        password: ${spring.cloud.nacos.discovery.password}
+        namespace: ${spring.cloud.nacos.discovery.namespace}
+        group: ${spring.cloud.nacos.discovery.group}
+        prefix: ${spring.application.name}
+        file-extension: yml
+        shared-configs:
+          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+  profiles:
+    active: dev
